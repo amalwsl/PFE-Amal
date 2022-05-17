@@ -1,0 +1,29 @@
+[
+    {
+    "id": "a",
+    "title": "Exibitors"
+    },
+    {
+    "id": "b",
+    "title": "Professional Visitors"
+    },
+    {
+    "id": "c",
+    "title": "Official Delegation"
+    },
+    {
+        "id": "d",
+        "title": "Auditorium D",
+        "children": [
+        {
+        "id": "d1",
+        "title": "Room D1"
+        },
+        {
+        "id": "d2",
+        "title": "Room D2"
+        }
+        ]
+        }
+    
+    ]

@@ -1,0 +1,65 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+  
+  .calendar {
+    max-width:80%;
+    height: 50%;
+    margin-left: 10%;
+    margin-top: 2%;
+    color: '#053E5D';
+  }
+
+  .body-button{
+    background-color: #053E5D;
+  }
+
+  .me-auto{
+    padding-left: 70%;
+    font-weight:500;
+  
+  }
+
+  .cardLogin{
+    width: 35%;
+    margin-left: 32.50%;
+    margin-top: 10%;
+  }
+
+  
+
+  .MuiAvatar-root.MuiAvatar-circular{
+    width: 20px;
+    height: 20px;
+    size: 10px;
+    margin: 10px;
+    font-size: small;
+  }
+
+  .addButtonFloat{
+    background-color: #053E5D;
+  }
+
+  .editButtonFloat{
+    background-color: #C90F0F;
+  }
+
+  .searchBarusers{
+    width: 40%;
+    margin-left: 50%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+  }
+
+  .searchButton{
+    background-color: #053E5D;
+    
+
+  }
