@@ -6,21 +6,22 @@ import meetingRoutes from './routes/meetingRoutes.js'
 dotenv.config()
 
 const app = express()
+const port = process.env.PORT
 
 app.use(express.json());
 
-connectDB()
-
 app.get("/", (req, res) => {
-      res.send("API is running ...!");
+  console.log(res)
+      res.send("e");
     });
 
 app.use('/api/users',userRoutes)
 app.use('/api/meetings',meetingRoutes)
 
+connectDB().then(() => {
+  app.listen(port,()=>console.log(`server starting at ${port}`))
+})
+
   
 
-const port = process.env.PORT
 
-
-app.listen(port,()=>console.log(`server starting at ${port}`))
