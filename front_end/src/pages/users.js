@@ -5,6 +5,7 @@ import { sample } from 'lodash';
 import Avatar from '../components/avatar';
 import './styles.css'
 import { Button,FormControl,Form } from 'react-bootstrap';
+import FloatingActionButtons from '../components/FloatingActionButtons';
 
 
 
@@ -92,6 +93,8 @@ export default function DataTable() {
       />
 
     </div>
+    <FloatingActionButtons/>
+
     </>
     
   );

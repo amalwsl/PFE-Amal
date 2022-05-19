@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav,Container,NavDropdown } from 'react-bootstrap';
+import ProfilPopover from './ProfilPopover';
 import '../App.css'
 
 
@@ -25,6 +26,7 @@ const NavBar=()=>{
                     </NavDropdown>
                 </Nav>
                 </Navbar.Collapse>
+                <ProfilPopover  />
             </Container>
         </Navbar>
     );

@@ -63,3 +63,42 @@ html, body {
     
 
   }
+
+  .profilepopoverbtn{
+    border-radius: 100%;
+    width: 30px;
+    height: 35px;
+  }
+
+  .headerPopover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .headBodyPopover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .mailProfil{
+    font-size: x-small;
+  }
+
+  .bodypopver{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .btnsPopover{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    margin: -10%;
+  }

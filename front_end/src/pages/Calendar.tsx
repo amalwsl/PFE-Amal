@@ -15,6 +15,7 @@ import './styles.css';
 
 
 import { firebaseConfig } from '../config';
+import FloatingActionButtons from '../components/FloatingActionButtons';
 
 
 const app = initializeApp(firebaseConfig);
@@ -25,7 +26,7 @@ const Calendar=()=> {
   const [data,setData]= useState<any[]> ([]);
   useEffect(()=>{
     //mounts
-    const q = query (collection(db,'non_existent'));
+    const q = query (collection(db,'agenda'));
     const unsub = onSnapshot(q,(snap)=>{
       const array : any[] = snap.docs.map(doc=>{
         return {
@@ -52,7 +53,7 @@ const Calendar=()=> {
           start:e.date,
           allDay:true
         }
-        addDoc(collection(db,'non_existent'),event)
+        addDoc(collection(db,'agenda'),event)
       }
   }
 
@@ -62,6 +63,7 @@ const Calendar=()=> {
   
 
   return (
+    <>
     <div className="calendar">
        <Fullcalendar
        events={data}
@@ -71,7 +73,7 @@ const Calendar=()=> {
        eventColor= '#053E5D'
        displayEventTime={true}
        editable={true}
-       
+       schedulerLicenseKey= 'CC-Attribution-NonCommercial-NoDerivatives'
 
 
 
@@ -116,8 +118,11 @@ const Calendar=()=> {
   dateClick={handleDateClick}
        
   />
+    
 
   </div>
+  <FloatingActionButtons/>
+  </>
   );
 }
 
