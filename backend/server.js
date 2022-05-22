@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import connectDB from './config/connectDB.js';
 import userRoutes from './routes/userRoutes.js'
 import meetingRoutes from './routes/meetingRoutes.js'
+import authRoutes from './routes/auth.js'
 dotenv.config()
 
 const app = express()
@@ -17,6 +18,9 @@ app.get("/", (req, res) => {
 
 app.use('/api/users',userRoutes)
 app.use('/api/meetings',meetingRoutes)
+app.use('/api/auth',authRoutes)
+
+console.log('server running')
 
 connectDB().then(() => {
   app.listen(port,()=>console.log(`server starting at ${port}`))

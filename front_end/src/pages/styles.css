@@ -102,3 +102,38 @@ html, body {
     justify-content: center;
     margin: -10%;
   }
+
+  .modalFooter{
+    display: block;
+  }
+
+  .mb-submit-close{
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+
+  .submitBtn{
+    margin-left: 10px;
+  }
+
+  .modalBody{
+    display: flex;
+    justify-content: center;
+  }
+
+  .counterContainer{
+    background-color: rgba(240, 248, 255, 0.678);
+    width: 60%;
+    border-radius: 10px;
+    top:-10px;
+    
+    
+  }
+
+  .carousel{
+    top: 0;
+  }

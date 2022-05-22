@@ -2,8 +2,9 @@ import React,{useRef,useState} from 'react';
 import { Overlay,Popover } from 'react-bootstrap';
 import IconButton from '@mui/material/IconButton';
 import Avatar from '../components/avatar';
-import EditIcon from '@mui/icons-material/Edit';
-import SettingsIcon from '@mui/icons-material/Settings';
+import ProfileModal from './EditProfileModal'
+import SettingsModal from '../components/SettingsModals';
+
 import '../pages/styles.css'
 
 
@@ -26,6 +27,8 @@ import '../pages/styles.css'
             const country='Tunisia'
             const nature='admin'
             const mail='awesleti@iadeorganiser.com'
+           
+              
           
             return (
               <div ref={ref} className="btnProfPop" >
@@ -50,12 +53,9 @@ import '../pages/styles.css'
                        </div>
                     <hr/>
                     <div className='btnsPopover'>
-                    <IconButton>
-                        <EditIcon sx= {{fontSize:'initial'}} />
-                    </IconButton>
-                    <IconButton>
-                        <SettingsIcon sx= {{fontSize:'initial'}} />
-                    </IconButton>
+                    <ProfileModal/>
+                    <SettingsModal/>
+                    
                     </div>
                     
 

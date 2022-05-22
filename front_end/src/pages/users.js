@@ -71,6 +71,7 @@ const rows = [...Array(24)].map((_, index) => ({
   }));
 
 export default function DataTable() {
+
   return (
     <>
     <Form className="searchBarusers">
@@ -79,11 +80,12 @@ export default function DataTable() {
       placeholder="Search"
       className="me-2"
       aria-label="Search"
-      
+      //onChange={e=>setSearch(e.target.value)}
     />
     <Button variant="outline-light" className='searchButton'>Search</Button>
   </Form>
     <div style={{ height: 400, width: '80%' ,marginLeft:'10%',marginTop:'1%'}}>
+    
       <DataGrid
         rows={rows}
         columns={columns}
@@ -94,6 +96,7 @@ export default function DataTable() {
 
     </div>
     <FloatingActionButtons/>
+    
 
     </>
     
