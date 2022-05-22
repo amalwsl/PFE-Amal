@@ -1,18 +1,17 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Router from './routes.js'
-import NavBar from './components/NavBar.js'
-import MydModalWithGrid from './components/ProfileModal.js';
 
 
 const App = () => {
+  
+  const user = localStorage.getItem("token");
+
 
   return (
     <>
- 
-    <NavBar/>
-    <MydModalWithGrid  />
-    <Router />
+    
+    <Router  />
    
     </>
   );
