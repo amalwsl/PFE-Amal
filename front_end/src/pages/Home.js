@@ -5,6 +5,8 @@ import HailIcon from '@mui/icons-material/Hail';
 import PublicIcon from '@mui/icons-material/Public';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import SectorsImgHover from '../components/SectorsImgHover'
+import Supportedby from '../components/logosSlider/supporters';
+import OurPartners from '../components/logosSlider/partners'
 import './styles.css'
 import { Button } from '@mui/material';
 
@@ -48,9 +50,10 @@ import { Button } from '@mui/material';
             
             
           </div>  
-            <h3><strong> International meeting for Tunisia, Africa & Middle-East</strong></h3>
+            <h3 style={{marginTop:"20px"}} ><strong> International meeting for Tunisia, Africa & Middle-East</strong></h3>
             
             <h5 style={{color:'#053E5D'}}>12th to 16th October 2022 <span style={{color:'#C90F0F'}} > |</span> INTERNATIONAL DJERBA ZARZIS AIRPORT</h5>
+            
             <div className='IADEcard'>
               <img className='IADEimg' alt='IADE' width="50%" src="https://www.iadetunisia.com/wp-content/uploads/2021/02/DSC_0270-scaled.jpg"/>
               
@@ -68,14 +71,21 @@ import { Button } from '@mui/material';
                 <Button variant='outlined' className='IADEbtn' sx={{color:"#C90F0F",borderColor:"#C90F0F",width:"fit-content"}}  >learn more.. </Button>
               </div>
             </div>
-            
-            
-            
-            
+
+            <span style={{marginLeft:"-70%",color:'#053E5D'}}><strong>Supported by</strong></span>
+            <div className="supportedby" style={{ width: "100%",backgroundColor:"rgba(246, 248, 251, 0.978)" , marginBottom:"20px"}}>
+              <Supportedby  />
+            </div>
+
             <SectorsImgHover/>
-            <h1>this is Home page3</h1>
-            <span>lorem ipsum,bndkjbJVBKJVBZKVBZJBZVKJBZVKS.SSVN VN VNZLVNZLEKVNLKVNLVKNZVLNZVLZNVZS</span>
-            <h1> trnslate zone :</h1>
+            
+            <span style={{marginLeft:"-70%",color:'#053E5D'}}><strong>Our Partners</strong></span>
+            <div className="supportedby" style={{ width: "100%",backgroundColor:"rgba(246, 248, 251, 0.978)" , marginBottom:"20px"}}>
+              <OurPartners/>
+            </div>
+            
+            
+           
             
 
         </div>

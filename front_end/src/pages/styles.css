@@ -185,6 +185,7 @@ html, body {
     width: 85%;
     border-radius: 8px;
     margin: 20px;
+    margin-bottom: 80px;
   }
 
   .IADEtext{
@@ -196,7 +197,8 @@ html, body {
   }
 
   .lastP{
-    margin-bottom: 60px;
+    margin-bottom: 70px;
   }
+  
 
   
