@@ -3,7 +3,14 @@
 
 .navbar{
   background-color: #053E5D;
+  position: relative;
+  z-index: 5;
  
+}
+
+.navbarContainer.container{
+  display: flex;
+  align-items: baseline;
 }
 
 .btn-group{

@@ -1,6 +1,5 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel'
-import CountUp from 'react-countup';
 import '../pages/styles.css'
 
 
@@ -17,8 +16,8 @@ const CarouselHome=()=>{
             alt="First slide"
             />
             <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Conferences</h3>
+            <p>The International Aerospace & Defence Exhibition of Tunisia</p>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -29,8 +28,8 @@ const CarouselHome=()=>{
             />
 
             <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Airshow</h3>
+            <p>The International Aerospace & Defence Exhibition of Tunisia</p>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -42,8 +41,8 @@ const CarouselHome=()=>{
             />
 
             <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h3>B2B Meetings</h3>
+            <p>The International Aerospace & Defence Exhibition of Tunisia</p>
             </Carousel.Caption>
 
             

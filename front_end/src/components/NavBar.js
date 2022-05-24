@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Nav,Container,NavDropdown } from 'react-bootstrap';
 import ProfilPopover from './ProfilPopover';
+import NotificationsPopover from './notification/notifPopover';
 import '../App.css'
 
 
@@ -8,7 +9,7 @@ import '../App.css'
 const NavBar=()=>{
     return(
         <Navbar className='navbar' variant='dark'  expand="lg">
-            <Container>
+            <Container className='navbarContainer' >
                 <Navbar.Brand href="/">
                     <img src='IADEWHITE.png' alt='logo' width="80%" />
                 </Navbar.Brand>
@@ -27,6 +28,7 @@ const NavBar=()=>{
                 </Nav>
                 </Navbar.Collapse>
                 <ProfilPopover  />
+                <NotificationsPopover  />
             </Container>
         </Navbar>
     );

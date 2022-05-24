@@ -4,10 +4,15 @@ import connectDB from './config/connectDB.js';
 import userRoutes from './routes/userRoutes.js'
 import meetingRoutes from './routes/meetingRoutes.js'
 import authRoutes from './routes/auth.js'
-dotenv.config()
+import cors from 'cors'
+dotenv.config();
+
+
 
 const app = express()
 const port = process.env.PORT
+
+app.use(cors());
 
 app.use(express.json());
 
@@ -19,6 +24,7 @@ app.get("/", (req, res) => {
 app.use('/api/users',userRoutes)
 app.use('/api/meetings',meetingRoutes)
 app.use('/api/auth',authRoutes)
+
 
 console.log('server running')
 

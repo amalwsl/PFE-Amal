@@ -3,9 +3,10 @@ import { DataGrid } from '@mui/x-data-grid';
 import { faker } from '@faker-js/faker';
 import { sample } from 'lodash';
 import Avatar from '../components/avatar';
+//import AddUser from '../components/FloatingButtons/AddUser'
 import './styles.css'
 import { Button,FormControl,Form } from 'react-bootstrap';
-import FloatingActionButtons from '../components/FloatingActionButtons';
+import FloatingActionButtons from '../components/FloatingButtons/FloatingActionButtonsUser';
 
 
 
@@ -95,7 +96,7 @@ export default function DataTable() {
       />
 
     </div>
-    <FloatingActionButtons/>
+    <FloatingActionButtons />
     
 
     </>

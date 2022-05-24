@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React,{ useState } from "react";
 import axios from "axios";
 import styles from "./styles.module.css";
 
 
 const LoginForm = () => {
-	const [data, setData] = useState({ email: "", password: "" });
+	const [data, setData] = useState({ login: "", password: "" });
 	const [error, setError] = useState("");
 
 	const handleChange = ({ currentTarget: input }) => {
@@ -38,9 +38,9 @@ const LoginForm = () => {
 						<input
 							type="email"
 							placeholder="Email"
-							name="email"
+							name="login"
 							onChange={handleChange}
-							value={data.email}
+							value={data.login}
 							required
 							className={styles.input}
 						/>

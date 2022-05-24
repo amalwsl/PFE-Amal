@@ -15,7 +15,7 @@ import './styles.css';
 
 
 import { firebaseConfig } from '../config';
-import FloatingActionButtons from '../components/FloatingActionButtons';
+import FloatingActionButtons from '../components/FloatingButtons/FloatingActionButtonsUser';
 
 
 const app = initializeApp(firebaseConfig);

@@ -14,17 +14,19 @@ userSchema.methods.generateAuthToken = function () {
   const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
     expiresIn: "3d",
   });
+  console.log(token)
   return token;
 };
 
-const User = mongoose.model("user", userSchema);
+const User = mongoose.model("users", userSchema);
 
 const validate = (data) => {
   const schema = Joi.object({
-    firstName: Joi.string().required().label("First Name"),
-    lastName: Joi.string().required().label("Last Name"),
-    email: Joi.string().email().required().label("Email"),
-    password: passwordComplexity().required().label("Password"),
+    firstName: Joi.string().label("first_name"),
+    lastName: Joi.string().label("last_name"),
+    country: Joi.string().label("country"),
+    email: Joi.string().email().label("login"),
+    password: passwordComplexity().label("password"),
   });
   return schema.validate(data);
 };

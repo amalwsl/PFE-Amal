@@ -1,20 +1,24 @@
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import Joi from "joi";
 
-const userSchema = mongoose.Schema(
+import asyncHandler from "express-async-handler";
+import passwordComplexity from "joi-password-complexity";
+
+const userSchema = new mongoose.Schema(
   {
     first_name: {
       type: String,
-      required: true,
+      
     },
     last_name: {
       type: String,
-      required: true,
+      
     },
     contact_details: {
       email1: {
         type : String,
-        required: true,
+        
       },
       email2: {
         type : String,
@@ -35,15 +39,15 @@ const userSchema = mongoose.Schema(
     },
     country : {
       type : String,
-      required: true,
+      
     },
     company:{
       type : String,
-      required: true,
+      
     },
     cuurrent_position:{
       type : String,
-      required: true,
+      
     },
     civil_title:{
       type : String
@@ -60,12 +64,12 @@ const userSchema = mongoose.Schema(
     },
     login: {
       type: String,
-      required: true,
+      
       unique: true,
     },
     password: {
       type: String,
-      required: true,
+      
     },
     isAdmin: {
       type: Boolean,
@@ -89,18 +93,23 @@ const userSchema = mongoose.Schema(
   }
 );
 
-userSchema.methods.matchPassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
+userSchema.methods.generateAuthToken = function () {
+  const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
+    expiresIn: "3d",
+  });
+  console.log(token)
+  return token;
 };
+const User = ()=>{return( mongoose.model("users", userSchema))};
 
-userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    next();
-  }
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-});
+// const validate = (data) => {
+// 	const schema = Joi.object({
+	
+// 		login: Joi.string().email().label("login"),
+// 		password: passwordComplexity().label("password"),
+// 	});
+// 	return schema.validate(data);
+// };
 
-const User = mongoose.model("User", userSchema);
 
 export default User;

@@ -11,14 +11,14 @@ const signInUser = asyncHandler(async (req,res) =>{
 const addUser = asyncHandler(async (req,res) =>{
     const {first_name,last_name,country,login,password} = req.body
    try {
-       const newUser = await User.create({
+       const addUser = await User.create({
            first_name,
            last_name,
            country,
            login,
            password
        })
-       res.json(newUser)
+       res.json(addUser)
    } catch (error) {
        res.status(500)
        throw new Error('Failed to add user')

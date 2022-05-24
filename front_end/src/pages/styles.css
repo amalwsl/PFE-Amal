@@ -125,15 +125,78 @@ html, body {
     justify-content: center;
   }
 
-  .counterContainer{
-    background-color: rgba(240, 248, 255, 0.678);
-    width: 60%;
-    border-radius: 10px;
-    top:-10px;
-    
+  .homeContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ContainerCarouselCounter{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
     
   }
 
   .carousel{
     top: 0;
+    z-index: -1;
+    margin-top: -50px;
   }
+
+
+  .counterContainer{
+    background-color: rgba(255, 255, 255, 0.937);
+    width: 60%;
+    height: 45px;
+    border-radius: 5px;
+    margin-top:-50px;
+    z-index: 2;
+    color: #053E5D;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    
+  }
+
+  .counter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    
+  }
+
+  .counter.span{
+    font-weight: bold;
+    font-size: medium;
+  }
+
+  .IADEcard{
+    background-color: rgba(246, 248, 251, 0.978);
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    border-radius: 8px;
+    margin: 20px;
+  }
+
+  .IADEtext{
+    margin-left: 30px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .lastP{
+    margin-bottom: 60px;
+  }
+
+  

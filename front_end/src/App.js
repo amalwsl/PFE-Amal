@@ -5,7 +5,6 @@ import Router from './routes.js'
 
 const App = () => {
   
-  const user = localStorage.getItem("token");
 
 
   return (
