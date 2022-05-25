@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       
     },
-    contact_details: {
+    
       email1: {
         type : String,
         
@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema(
         type : String,
       },
      
-    },
+    
     adresse:{
       type : String,
     },
@@ -45,7 +45,7 @@ const userSchema = new mongoose.Schema(
       type : String,
       
     },
-    cuurrent_position:{
+    current_position:{
       type : String,
       
     },
@@ -69,7 +69,6 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      
     },
     isAdmin: {
       type: Boolean,
@@ -100,16 +99,10 @@ userSchema.methods.generateAuthToken = function () {
   console.log(token)
   return token;
 };
-const User = ()=>{return( mongoose.model("users", userSchema))};
-
-// const validate = (data) => {
-// 	const schema = Joi.object({
-	
-// 		login: Joi.string().email().label("login"),
-// 		password: passwordComplexity().label("password"),
-// 	});
-// 	return schema.validate(data);
-// };
+const Users = mongoose.model("users", userSchema)
 
 
-export default User;
+//const PhoneBook = mongoose.model('PhoneBook',PhoneBookSchema)
+
+
+export default Users;

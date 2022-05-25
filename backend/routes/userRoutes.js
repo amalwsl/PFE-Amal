@@ -5,7 +5,7 @@ import {
 
 const router = express.Router();
 
-router.route('/profile').get(getUserProfile)
+router.route('/profile/:id').get(getUserProfile)
 router.route('/login').post(signInUser)
 router.route('/add').post(addUser)
 router.route('/delete/:id').delete(deleteUser)

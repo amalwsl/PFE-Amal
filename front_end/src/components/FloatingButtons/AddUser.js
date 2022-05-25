@@ -5,10 +5,7 @@ import AddIcon from '@mui/icons-material/Add';
 import IconButton from '@mui/material/IconButton';
 import '../../pages/styles.css'
 import Fab from '@mui/material/Fab';
-
-
-
-
+import Axios from 'axios';
 
 
 
@@ -31,6 +28,17 @@ export default function AddUser() {
     setValidated(true);
   };
 
+  const [first_name, setName] = useState('')
+  const [last_name, setLastName] = useState('')
+  const [country, setCountry] = useState('')
+  const [login, setLogin] = useState('')
+  const [password, setPassword] = useState('')
+
+  
+  const addNewUser = () => {
+    Axios.post('http://localhost:5000/api/users/add',{first_name,last_name,country,login,password})
+  }
+
 
   
     return (
@@ -50,131 +58,51 @@ export default function AddUser() {
           <Modal.Body>
             
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Full name</Form.Label>
+                <Form.Label>Name</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="type your name"
                   autoFocus
+                  onChange={(e) => {setName(e.target.value)}}
                 />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Company</Form.Label>
+                <Form.Label>Last name</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="type your company name"
+                  placeholder="type your last name"
                   autoFocus
+                  onChange={(e) => {setLastName(e.target.value)}}
                 />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Current position</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="type your current position"
-                  autoFocus
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Civil title</Form.Label>
-                <Form.Select size="sm">
-                  <option>Mr</option>
-                  <option>Mrs</option>
-                  <option>Ms</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Email </Form.Label>
+                <Form.Label>Login </Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="name@example.com"
                   autoFocus
+                  onChange={(e) => {setLogin(e.target.value)}}
                 />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Email 2</Form.Label>
+                <Form.Label>Password</Form.Label>
                 <Form.Control
-                  type="email"
-                  placeholder="type another email if you want"
+                  type="password"
+                  placeholder="type password"
                   autoFocus
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Phone </Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="type phone number"
-                  autoFocus
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Mobile </Form.Label>
-                <Form.Control
-                  type="number"
-                  placeholder="type mobile number if you want"
-                  autoFocus
-                />
-                
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Adresse </Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="type adresse"
-                  autoFocus
+                  onChange={(e) => {setPassword(e.target.value)}}
                 />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Country </Form.Label>
-                <CountrySelector />                
+                <CountrySelector onSelect={(e) => {setCountry(e.target.value)}}/>                
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Participant Nature</Form.Label>
-                <Form.Select size="sm">
-                  <option>Exhibitor</option>
-                  <option>Professional Visitor</option>
-                  <option>Official Delegation</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Role</Form.Label>
-                <Form.Select size="sm">
-                  <option>Manager</option>
-                  <option>user</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>tag</Form.Label>
-                
-                <Form.Check  aria-label="option 1" label="aeronautics" />
-                <Form.Check  aria-label="option 1" label="defense" />
-                <Form.Check  aria-label="option 1" label="space" />
-                <Form.Check  aria-label="option 1" label="AI" />
-                <Form.Check  aria-label="option 1" label="robotics" />
-              </Form.Group>
-
-
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label>Note</Form.Label>
-                <Form.Control as="textarea" rows={3} />
-              </Form.Group>
+             
             
           </Modal.Body>
           <Modal.Footer className='modalFooter'>
@@ -193,7 +121,7 @@ export default function AddUser() {
               Close
             </Button>
             
-            <Button type="submit" className='submitBtn'>Submit form</Button>
+            <Button type="submit" className='submitBtn' onClick={addNewUser}>Submit form</Button>
             </Form.Group>
           </Modal.Footer>
           </Form>
