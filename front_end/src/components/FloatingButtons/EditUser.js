@@ -54,7 +54,7 @@ export default function EditProfile() {
 
   
   const EditUser = () => {
-    Axios.put('http://localhost:5000/api/users/update/628e6c4211677b605446fc4c',{first_name,login ,last_name,email1,email2, phone_pro,phone_perso,mobile,adresse,country,company,current_position,civil_title,note,isAdmin,isManager,isExhibitor})
+    Axios.put('http://localhost:5000/api/users/update/628e6c4211677b605446fc4c',{first_name,login ,last_name,email1,email2, phone_pro,phone_perso,mobile,adresse,country,company,current_position,civil_title,note,isAdmin,isManager,tag,isExhibitor})
   }
 
 
