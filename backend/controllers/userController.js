@@ -1,10 +1,23 @@
 import User from "../models/userModel.js";
 import asyncHandler from "express-async-handler";
+import dotenv from 'dotenv'
+import { MongoClient } from 'mongodb'
 
 
 const getUserProfile = asyncHandler(async (req,res) =>{
-    res.json({name:'amal'})
-})
+
+    const url = process.env.MONGO_URL;
+    const client = new MongoClient(url);
+    const dbName = "myFirstDatabase"
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection('users');
+    const findResult = await collection.find({}).toArray();
+
+
+    res.json({findResult})
+   
+    });
 const signInUser = asyncHandler(async (req,res) =>{
     res.json({ok:'ok'})
 })
