@@ -1,5 +1,5 @@
 import React from 'react';
-import Calendar from './pages/Calendar.tsx';
+import Calendar from './pages/Calendar.js';
 import { Chart } from './components/charts.tsx';
 import MyCompany from './pages/participants/myCompany'
 import OfficialDeleg from './pages/participants/officialDelegation'
