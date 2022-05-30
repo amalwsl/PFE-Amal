@@ -2,8 +2,16 @@ import asyncHandler from "express-async-handler";
 import Meeting from "../models/meetingsModel.js";
 
 
+
+
 const getMeeting = asyncHandler(async (req,res) =>{
-    res.json({title:'meeting 01'})
+    try {
+        const events = await Meeting.find();
+
+        res.status(200).json(events);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
 })
 
 const addMeeting = asyncHandler(async (req,res) =>{
@@ -24,11 +32,11 @@ const addMeeting = asyncHandler(async (req,res) =>{
 
 const updateMeeting = asyncHandler(async (req,res) =>{
     const id = req.params.id
-    
+    const {title,start_time,host,guest} = req.body
    try {
        const meeting = await Meeting.findById(id)
        if(meeting){
-           const updateMeeting = await Meeting.where({ _id: id }).update({ $set: { title: 'words' }})
+           const updateMeeting = await Meeting.where({ _id: id }).update({ $set: { title:title,start_time:start_time,host:host,guest:guest }})
            res.status(200)
            res.json({message:'ok meeting updated'})
        }else {
@@ -65,3 +73,5 @@ export {
     getMeeting,addMeeting,deleteMeeting,updateMeeting
  
 };
+
+

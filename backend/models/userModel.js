@@ -1,9 +1,7 @@
 import mongoose from "mongoose";
-import jwt from "jsonwebtoken";
-import Joi from "joi";
+import bcrypt from "bcryptjs";
+import crypto from "crypto"
 
-import asyncHandler from "express-async-handler";
-import passwordComplexity from "joi-password-complexity";
 
 const userSchema = new mongoose.Schema(
   {
@@ -86,23 +84,44 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    resetPasswordToken: String,
+    resetPasswordExpire: Date,
   },
   {
     timestamps: true,
   }
 );
 
-userSchema.methods.generateAuthToken = function () {
-  const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
-    expiresIn: "3d",
-  });
-  console.log(token)
-  return token;
+userSchema.methods.matchPassword = async function (enterPassword) {
+  return await bcrypt.compare(enterPassword, this.password);
 };
+
+// Register
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
+  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
+
+
+
+userSchema.methods.getResetPasswordToken = async function () {
+
+  // generate token
+  const resetToken = crypto.randomBytes(20).toString("hex");
+
+  // generate hash token and add to db
+  this.resetPasswordToken = crypto.createHash("sha256").update(resetToken).digest("hex");
+  this.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
+
+  return resetToken;
+}
+
 const Users = mongoose.model("users", userSchema)
 
 
-//const PhoneBook = mongoose.model('PhoneBook',PhoneBookSchema)
 
 
 export default Users;

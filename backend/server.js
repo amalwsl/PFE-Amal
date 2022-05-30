@@ -3,7 +3,6 @@ import dotenv from 'dotenv'
 import connectDB from './config/connectDB.js';
 import userRoutes from './routes/userRoutes.js'
 import meetingRoutes from './routes/meetingRoutes.js'
-import authRouter  from './routes/auth.js'
 import cors from 'cors'
 import { MongoClient } from 'mongodb'
 dotenv.config();
@@ -23,12 +22,16 @@ async function main() {
   await client.connect();
   console.log('Connected successfully to server');
   const db = client.db(dbName);
-  const collection = db.collection('users');
+  const collectionUser = db.collection('users');
+  const collectionMeeting = db.collection('meetings');
+
 
   // the following code examples can be pasted here...
 
-  const findResult = await collection.find({}).toArray();
-console.log('Found documents =>', findResult);
+  const findUsers = await collectionUser.find({}).toArray();
+  const findmeetings = await collectionMeeting.find({}).toArray();
+  console.log('Found User documents =>', findUsers);
+  console.log('Found Meeting documents =>', findmeetings);
 
   return 'done.';
 }
@@ -47,7 +50,7 @@ app.get("/", (req, res) => {
 
 app.use('/api/users',userRoutes)
 app.use('/api/meetings',meetingRoutes)
-app.use('/api/auth/', authRouter)
+
 
 
 console.log('server running')

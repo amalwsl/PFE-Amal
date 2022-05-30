@@ -9,6 +9,16 @@ import { Button,FormControl,Form } from 'react-bootstrap';
 import FloatingActionButtons from '../components/FloatingButtons/FloatingActionButtonsUser';
 
 
+const [users, setUsers] = useState('')
+
+
+
+// const GetUser = () => {
+//   Axios.get('http://localhost:5000/api/users/usersList')
+//   .then((response)
+//   const data=response.data
+//   )
+// }
 
 
 const columns = [
@@ -45,7 +55,7 @@ const columns = [
 const rows = [...Array(24)].map((_, index) => ({
     id: faker.datatype.uuid(),
     user: {
-        username: faker.name.firstName()+' ' + faker.name.lastName(),
+        username:  setName+' ' + faker.name.lastName(),
         avatar: ''
       },
     

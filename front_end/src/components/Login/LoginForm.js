@@ -14,20 +14,16 @@ const LoginForm = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:5000/api/auth";
+			const url = "http://localhost:5000/api/users/login";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
-			window.location = "/";
+			window.location = "/home";
 		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
+			console.log(error)
 				setError(error.response.data.message);
 			}
 		}
-	};
+	
 
 	return (
 		<div className={styles.login_container}>

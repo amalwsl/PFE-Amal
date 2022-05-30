@@ -30,6 +30,8 @@ const meetingsSchema = mongoose.Schema({
   }
 );
 
+
+
 const Meeting = mongoose.model("Meeting", meetingsSchema);
 
 export default Meeting;
