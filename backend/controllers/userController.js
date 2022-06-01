@@ -34,6 +34,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
     console.log('couldn"t get user');
   }
 });
+
 const signInUser = asyncHandler(async (req, res) => {
   const { login, password } = req.body;
   const user = await User.findOne({ login });
@@ -41,12 +42,11 @@ const signInUser = asyncHandler(async (req, res) => {
   if (user && (await user.matchPassword(password))) {
     res.json({
       user,
-      //   token : generateToken(user._id),
+      token: generateToken(user._id),
     });
     console.log('signed in successfully');
   } else {
-    res.status(401);
-    throw new Error('invalid mail or password');
+    res.status(401).json({ msg: 'invalid mail or password' });
   }
 });
 
