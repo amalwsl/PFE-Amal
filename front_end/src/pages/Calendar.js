@@ -20,7 +20,7 @@ import bootstrap5Plugin from '@fullcalendar/bootstrap5';
 import './styles.css';
 
 import { firebaseConfig } from '../config';
-import FloatingActionButtons from '../components/FloatingButtons/FloatingActionButtonsUser';
+import FloatAddmeeting from '../components/FloatingButtons/FloatAddMeeting';
 import Axios from 'axios';
 
 const app = initializeApp(firebaseConfig);
@@ -100,13 +100,13 @@ const Calendar = () => {
             bootstrap5Plugin,
             resourceTimelinePlugin,
           ]}
-          initialView="resourceTimeline"
+          initialView="timeGridDay"
           themeSystem="bootstrap5"
           eventColor="#053E5D"
           displayEventTime={true}
           editable={true}
           schedulerLicenseKey="CC-Attribution-NonCommercial-NoDerivatives"
-          headerToolbar={{ center: 'resourceTimeline,timeGridWeek,listWeek' }} // buttons for switching between views
+          headerToolbar={{ center: 'timeGridDay,timeGridWeek,listWeek' }} // buttons for switching between views
           views={{
             dayGridMonth: {
               // name of view
@@ -132,15 +132,15 @@ const Calendar = () => {
           ]}
           scrollTime={'00:00'}
           aspectRatio={2.5}
-          resourceAreaHeaderContent="Participants"
-          resources={users.map((user) => ({
-            title: `${user.first_name} ${user.last_name}`,
-          }))}
-          dateClick={handleDateClick}
+          // resourceAreaHeaderContent="Participants"
+          // resources={users.map((user) => ({
+          //   title: `${user.first_name} ${user.last_name}`,
+          // }))}
+          // dateClick={handleDateClick}
           
         />
       </div>
-      <FloatingActionButtons reload={reload} />
+      <FloatAddmeeting />
     </>
   );
 };

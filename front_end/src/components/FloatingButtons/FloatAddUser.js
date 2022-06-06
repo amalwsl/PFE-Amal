@@ -9,14 +9,14 @@ export default function FloatingActionButtons({ reload }) {
     <Box
       sx={{
         '& > :not(style)': { m: 1 },
-        position: 'fixed',
-        marginLeft: '80%',
-        marginTop: '-2%',
-        marginRight: '2%',
+        position: 'relative',
+        marginLeft: '90%',
+        marginTop: '0%',
+        marginBottom: '0%',
       }}
     >
       <AddUser reload={reload} />
-      <EditProfile reload={reload} />
+      
     </Box>
   );
 }

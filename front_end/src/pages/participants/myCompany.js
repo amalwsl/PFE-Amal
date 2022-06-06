@@ -3,10 +3,10 @@ import { DataGrid } from '@mui/x-data-grid';
 import { faker } from '@faker-js/faker';
 import { sample } from 'lodash';
 import Avatar from '../../components/avatar';
-//import AddUser from '../components/FloatingButtons/AddUser'
+import IconButton from '@mui/material/IconButton';
+import DateRangeIcon from '@mui/icons-material/DateRange';
 import '../styles.css'
-import { Button,FormControl,Form } from 'react-bootstrap';
-import FloatingActionButtons from '../../components/FloatingButtons/FloatingActionButtonsUser';
+import FloatAddUser from '../../components/FloatingButtons/FloatAddUser';
 
 
 
@@ -38,7 +38,22 @@ const columns = [
     { field: 'type', headerName: 'Type', alignRight: false },
     { field: 'status', headerName: 'Status', alignRight: false },
 
-    { field: '' }   ]
+    {field: 'filter'},
+    { field: 'agenda' ,
+      headerName: " ",
+      width: 100,
+      renderCell: () => {
+        return (
+          <>
+          <IconButton  className="agendaIcon">
+            <DateRangeIcon />
+            </IconButton >
+            
+          </>
+        );
+      }
+  }  
+]
 
 
 
@@ -75,17 +90,8 @@ export default function DataTable() {
 
   return (
     <>
-    <Form className="searchBarusers">
-    <FormControl
-      type="search"
-      placeholder="Search"
-      className="me-2"
-      aria-label="Search"
-      //onChange={e=>setSearch(e.target.value)}
-    />
-    <Button variant="outline-light" className='searchButton'>Search</Button>
-  </Form>
-    <div style={{ height: 400, width: '80%' ,marginLeft:'10%',marginTop:'1%'}}>
+   
+    <div style={{ height: 370,width: '80%' ,marginLeft:'10%',marginTop:'3%'}}>
     
       <DataGrid
         rows={rows}
@@ -96,7 +102,7 @@ export default function DataTable() {
       />
 
     </div>
-    <FloatingActionButtons />
+    <FloatAddUser/>
     
 
     </>

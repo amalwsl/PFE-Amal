@@ -19,11 +19,11 @@ const NavBar=()=>{
                     <Nav.Link href="/home">Home</Nav.Link>
                     <Nav.Link href="/calendar">Agenda</Nav.Link>
                     <NavDropdown title="Participants" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/users">My Company</NavDropdown.Item>
-                    <NavDropdown.Item href="/users/official-delegation">Official Delegation</NavDropdown.Item>
-                    <NavDropdown.Item href="/users/exhibitors">Exhibitors</NavDropdown.Item>
+                    <NavDropdown.Item href="/my-company">My Company</NavDropdown.Item>
+                    <NavDropdown.Item href="/official-delegation">Official Delegation</NavDropdown.Item>
+                    <NavDropdown.Item href="/exhibitors">Exhibitors</NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="/users/pro-Visitors">Professional Visitors</NavDropdown.Item>
+                    <NavDropdown.Item href="/pro-Visitors">Professional Visitors</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 </Navbar.Collapse>
