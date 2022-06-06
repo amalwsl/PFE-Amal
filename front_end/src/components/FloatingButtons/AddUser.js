@@ -29,7 +29,6 @@ export default function AddUser({ reload }) {
   const [last_name, setLastName] = useState('');
   const [country, setCountry] = useState('');
   const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
 
   const addNewUser = async () => {
     const res = await Axios.post('http://localhost:5000/api/users/add', {
@@ -37,7 +36,7 @@ export default function AddUser({ reload }) {
       last_name,
       country,
       login,
-      password,
+      
     });
     reload();
     if (res) setShow(true);
@@ -99,7 +98,7 @@ export default function AddUser({ reload }) {
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Country </Form.Label>
             <CountrySelector
-              onSelect={(e) => {
+              onChange={(e) => {
                 setCountry(e.target.value);
               }}
             />

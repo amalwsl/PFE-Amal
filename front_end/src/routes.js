@@ -37,7 +37,7 @@ const Routers = () => {
       <Router>
         <Routes>
           <Route exact path="/calendar" element={<Calendar />} />
-          <Route exact path="/chart" element={<Chart />} />
+          <Route exact path="/charts" element={<Chart />} />
           <Route exact path="/users" element={<MyCompany />} />
           <Route exact path="/users/exhibitors" element={<Exhibitors />} />
           <Route exact path="/users/pro-Visitors" element={<ProVisitors />} />

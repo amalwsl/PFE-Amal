@@ -1,7 +1,6 @@
 import { Modal, Form, Button } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
-import CountrySelector from '../../components/Selectors/countrySelector.js';
-import EditIcon from '@mui/icons-material/Edit';
+
 import Fab from '@mui/material/Fab';
 import IconButton from '@mui/material/IconButton';
 import '../../pages/styles.css';
@@ -10,7 +9,7 @@ import AddIcon from '@mui/icons-material/Add';
 import Select from 'react-select';
 import DatePicker from 'react-date-picker';
 
-export default function EditProfile({ reload }) {
+export default function AddMeeting({ reload }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -28,24 +27,7 @@ export default function EditProfile({ reload }) {
     setValidated(true);
   };
 
-  const [first_name, setName] = useState('');
-  const [last_name, setLastName] = useState('');
-  const [country, setCountry] = useState('Tunisia');
-  const [login, setLogin] = useState('');
-  const [email1, setEmail1] = useState('');
-  const [email2, setEmail2] = useState('');
-  const [phone_pro, setPhonePro] = useState(0);
-  const [phone_perso, setPhonePerso] = useState(0);
-  const [mobile, setMobile] = useState(0);
-  const [adresse, setAdresse] = useState('');
-  const [company, setCompany] = useState('');
-  const [current_position, setCurrentPosition] = useState('');
-  const [civil_title, setCivilTitle] = useState('Mr');
-  const [note, setNote] = useState('');
-  const [isAdmin, setIsAdmin] = useState('false');
-  const [isExhibitor, setIsExhibitor] = useState('false');
-  const [isManager, setIsManager] = useState('false');
-  const [tag, setTag] = useState('');
+
 
   const [users, setUsers] = useState([]);
   const [state, setState] = useState({

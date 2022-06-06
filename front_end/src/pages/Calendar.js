@@ -89,6 +89,8 @@ const Calendar = () => {
             title: m.title,
             start: m.start_time,
             end: m.end_time,
+            host:m.host,
+            guest:m.guest
           }))}
           plugins={[
             dayGridPlugin,
@@ -128,13 +130,14 @@ const Calendar = () => {
               endTime: '17:00',
             },
           ]}
-          scrollTime={'08:00'}
+          scrollTime={'00:00'}
           aspectRatio={2.5}
           resourceAreaHeaderContent="Participants"
           resources={users.map((user) => ({
             title: `${user.first_name} ${user.last_name}`,
           }))}
           dateClick={handleDateClick}
+          
         />
       </div>
       <FloatingActionButtons reload={reload} />

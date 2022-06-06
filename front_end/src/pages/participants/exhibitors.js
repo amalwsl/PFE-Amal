@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { DataGrid } from '@mui/x-data-grid';
 import { faker } from '@faker-js/faker';
 import { sample } from 'lodash';
@@ -7,7 +8,7 @@ import Avatar from '../../components/avatar';
 import '../styles.css'
 import { Button,FormControl,Form } from 'react-bootstrap';
 import FloatingActionButtons from '../../components/FloatingButtons/FloatingActionButtonsUser';
-
+import axios from 'axios';
 
 
 
@@ -18,7 +19,6 @@ const columns = [
         headerName: "User",
         width: 200,
         renderCell: (params) => {
-          console.log(params);
           return (
             <>
             <div className="avatarIcon">
@@ -41,11 +41,24 @@ const columns = [
     { field: '' }   ]
 
 
+export default function DataTable() {
 
-const rows = [...Array(24)].map((_, index) => ({
-    id: faker.datatype.uuid(),
+
+
+  const [users, setusers] = React.useState([]);
+  const getUsers = async () => {
+    const res = await axios.get('http://localhost:5000/api/users/usersList');
+    setusers(res.data);
+  };
+  
+  React.useEffect(() => {
+    getUsers();
+  }, []);
+  
+  const rows = users.map((user, index) => ({
+    id: user._id,
     user: {
-        username: faker.name.firstName()+' ' + faker.name.lastName(),
+        username: user.first_name+' ' + user.last_name,
         avatar: ''
       },
     
@@ -66,16 +79,20 @@ const rows = [...Array(24)].map((_, index) => ({
       'other'
     ]),
     tag: sample(['aerospace', 'defense','space','robotics','AI','others']),
-    type: sample(['exhibitor'])
+    type: sample(['exhibitor']),
+    company : user.company
   
   
   }));
 
-export default function DataTableExhibitors() {
+
+
+
+  console.log(users)
+  
 
   return (
     <>
-    
     <Form className="searchBarusers">
     <FormControl
       type="search"

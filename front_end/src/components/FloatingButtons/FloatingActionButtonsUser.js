@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import AddUser from './AddUser';
-import EditProfile from './EditUser';
+import EditProfile from './AddMeeting';
 import '../../pages/styles.css';
 
 export default function FloatingActionButtons({ reload }) {
