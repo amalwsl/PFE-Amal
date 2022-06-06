@@ -9,9 +9,10 @@ import Home from './pages/Home.js';
 import LoginForm from './pages/login';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar.js';
-import FooterPage from './components/Footer/Footer';
+import Footer from './components/Footer/Footer';
 import './App.css';
 import { AuthContext } from './context/AuthContext.js';
+import AdminDashbord from './pages/adminDashbord.js';
 
 const CheckRouters = () => {
   const { loggedIn } = useContext(AuthContext);
@@ -41,16 +42,13 @@ const Routers = () => {
           <Route exact path="/my-company" element={<MyCompany />} />
           <Route exact path="/exhibitors" element={<Exhibitors />} />
           <Route exact path="/pro-Visitors" element={<ProVisitors />} />
-          <Route
-            exact
-            path="/official-delegation"
-            element={<OfficialDeleg />}
-          />
+          <Route exact path="/admin-dashboard" element={<AdminDashbord />} />
+          <Route exact path="/official-delegation" element={<OfficialDeleg />}/>
           <Route exact path="/home" element={<Home />} />
         </Routes>
       </Router>
 
-      <FooterPage />
+      <Footer />
     </>
   );
 };
