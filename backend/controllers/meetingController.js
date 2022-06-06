@@ -11,6 +11,16 @@ const getMeeting = asyncHandler(async (req, res) => {
   }
 });
 
+const getMeetsByUserId = asyncHandler(async (req, res) => {
+  try {
+    const events = await Meeting.find({ guest: req.params.id });
+
+    res.status(200).json(events);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+});
+
 const addMeeting = asyncHandler(async (req, res) => {
   const { title, start_time, end_time, host, guest } = req.body;
   try {
@@ -24,7 +34,7 @@ const addMeeting = asyncHandler(async (req, res) => {
     res.json(newMeeting);
   } catch (error) {
     res.status(500);
-    console.log(error)
+    console.log(error);
     throw new Error('err');
   }
 });
@@ -72,4 +82,10 @@ const deleteMeeting = asyncHandler(async (req, res) => {
   }
 });
 
-export { getMeeting, addMeeting, deleteMeeting, updateMeeting };
+export {
+  getMeeting,
+  addMeeting,
+  deleteMeeting,
+  updateMeeting,
+  getMeetsByUserId,
+};
